@@ -115,9 +115,9 @@ const SignForm = ({ text }) => {
       </Button>
       <Box textAlign="center">
         {text === "Register" ? (
-          <Link to="/login">Don't have an account? Sign Up</Link>
+          <Link to="/login">Already have an account?</Link>
         ) : (
-          <Link to="/register">Already have an account?</Link>
+          <Link to="/register">Don't have an account? Sign Up</Link>
         )}
       </Box>
     </Container>
