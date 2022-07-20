@@ -17,7 +17,14 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route path="" element={<Home />}></Route>
+            <Route
+              path=""
+              element={
+                <ProtectedComponent>
+                  <Home />
+                </ProtectedComponent>
+              }
+            ></Route>
           </Route>
           <Route path="login" element={<LogIn></LogIn>}></Route>
           <Route path="register" element={<Register></Register>}></Route>
