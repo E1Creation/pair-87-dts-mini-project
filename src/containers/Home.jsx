@@ -6,7 +6,7 @@ import { usePopularsQuery } from "../services/Movies/TMDBMoviesAPI";
 
 const Home = () => {
   const { data, error, isLoading } = usePopularsQuery();
-  console.log(`popular data: ${data?.results[0]?.original_title}`);
+  // console.log(`popular data: ${data?.results[0]?.original_title}`);
   return (
     <Box bgcolor={"rgba(0,0,0,0.8)"}>
       <MovieList data={data} error={error} isLoading={isLoading} />

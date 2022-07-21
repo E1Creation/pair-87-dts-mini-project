@@ -8,11 +8,11 @@ import LogIn from "./containers/LogIn";
 import Register from "./containers/Register";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import ProtectedComponent from "./components/ProtectedComponent";
 import Home from "./containers/Home";
 import TopRated from "./containers/TopRated";
 import UpComing from "./containers/UpComing";
 import Detail from "./containers/Detail";
+import Search from "./containers/Search";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -20,38 +20,11 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route
-              path=""
-              element={
-                <ProtectedComponent>
-                  <Home />
-                </ProtectedComponent>
-              }
-            ></Route>
-            <Route
-              path="toprated"
-              element={
-                <ProtectedComponent>
-                  <TopRated />
-                </ProtectedComponent>
-              }
-            ></Route>
-            <Route
-              path="upcoming"
-              element={
-                <ProtectedComponent>
-                  <UpComing />
-                </ProtectedComponent>
-              }
-            ></Route>
-            <Route
-              path="detail/:id"
-              element={
-                <ProtectedComponent>
-                  <Detail />
-                </ProtectedComponent>
-              }
-            ></Route>
+            <Route path="" element={<Home />}></Route>
+            <Route path="toprated" element={<TopRated />}></Route>
+            <Route path="upcoming" element={<UpComing />}></Route>
+            <Route path="search" element={<Search />}></Route>
+            <Route path="detail/:id" element={<Detail />}></Route>
           </Route>
           <Route path="login" element={<LogIn></LogIn>}></Route>
           <Route path="register" element={<Register></Register>}></Route>
