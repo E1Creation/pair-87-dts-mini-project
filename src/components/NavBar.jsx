@@ -9,11 +9,13 @@ import {
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
-import { logOut } from "../services/authentication/firebase";
+import { auth, logOut } from "../services/authentication/firebase";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const NavBar = ({ isHomePage }) => {
-  const navigate = useNavigate();
+  const [user, isLoading] = useAuthState(auth);
+
   const logOutHandler = () => {
     logOut();
   };
@@ -40,7 +42,10 @@ const NavBar = ({ isHomePage }) => {
               <Typography variant="h5">Movieku</Typography>
             </Box>
             {isHomePage ? (
-              <Box display={"flex"}>
+              <Box display={"flex"} sx={{ alignItems: "center", gap: "20px" }}>
+                <Typography variant="body1" sx={{ color: "white" }}>
+                  {user?.email}
+                </Typography>
                 <Link to="/" style={{ textDecoration: "none" }}>
                   {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
                   <Button sx={{ my: 2, color: "white", display: "block" }}>

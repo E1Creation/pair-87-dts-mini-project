@@ -32,7 +32,6 @@ const ProtectedComponent = ({ children }) => {
     }
     if (!user) {
       navigate("/login");
-      console.log(user);
       return;
     }
   }, [user, isLoading, navigate]);

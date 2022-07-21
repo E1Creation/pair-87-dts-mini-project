@@ -39,26 +39,20 @@ const registerithEmailandPassword = async (email, password) => {
     console.log(`Login dengan user : ${authCredential.user}`);
   } catch (error) {
     console.log("fullerror: " + error);
-    console.log("error auth: " + error);
+    console.log("error auth: " + error.auth);
     console.log("error message: " + error.message);
   }
 };
 
-const loginWithEmailandPassword = (email, password) => {
-  setPersistence(auth, browserSessionPersistence)
-    .then(() => {
-      // Existing and future Auth states are now persisted in the current
-      // session only. Closing the window would clear any existing state even
-      // if a user forgets to sign out.
-      // ...
-      // New sign-in will be persisted with session persistence.
-      return signInWithEmailAndPassword(auth, email, password);
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      console.log(error.code);
-      console.log(error.message);
-    });
+const loginWithEmailandPassword = async (email, password) => {
+  try {
+    const authUser = await signInWithEmailAndPassword(auth, email, password);
+    console.log(authUser.user);
+  } catch (error) {
+    console.log(error);
+    console.log("error auth: " + error.auth);
+    console.log("error message: " + error.message);
+  }
 };
 
 const logOut = async () => {

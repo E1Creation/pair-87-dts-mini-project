@@ -12,7 +12,7 @@ export default function Loading() {
         height: "100vh",
       }}
     >
-      <CircularProgress />
+      <CircularProgress color="warning" />
     </Box>
   );
 }
