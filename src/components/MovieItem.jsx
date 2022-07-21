@@ -3,7 +3,7 @@ import React from "react";
 import { imageUrl } from "../services/Movies/TMDBMoviesAPI";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-const PopularItem = ({ popular }) => {
+const MovieItem = ({ popular }) => {
   return (
     <Box
       sx={{
@@ -41,4 +41,4 @@ const PopularItem = ({ popular }) => {
   );
 };
 
-export default PopularItem;
+export default MovieItem;

@@ -10,8 +10,15 @@ export const TMDBMovies = createApi({
     populars: builder.query({
       query: () => `/popular?api_key=${API_KEY}`,
     }),
+    topRated: builder.query({
+      query: () => `/top_rated?api_key=${API_KEY}`,
+    }),
+    upComing: builder.query({
+      query: () => `/upcoming?api_key=${API_KEY}`,
+    }),
   }),
 });
 
-export const { usePopularsQuery } = TMDBMovies;
+export const { usePopularsQuery, useTopRatedQuery, useUpComingQuery } =
+  TMDBMovies;
 export { imageUrl };

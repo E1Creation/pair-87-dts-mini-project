@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 import ProtectedComponent from "./components/ProtectedComponent";
 import Home from "./containers/Home";
+import TopRated from "./containers/TopRated";
+import UpComing from "./containers/UpComing";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -22,6 +24,22 @@ root.render(
               element={
                 <ProtectedComponent>
                   <Home />
+                </ProtectedComponent>
+              }
+            ></Route>
+            <Route
+              path="toprated"
+              element={
+                <ProtectedComponent>
+                  <TopRated />
+                </ProtectedComponent>
+              }
+            ></Route>
+            <Route
+              path="upcoming"
+              element={
+                <ProtectedComponent>
+                  <UpComing />
                 </ProtectedComponent>
               }
             ></Route>

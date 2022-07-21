@@ -1,10 +1,8 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
-import PopularItem from "./PopularItem";
-import { usePopularsQuery } from "../services/Movies/TMDBMoviesAPI";
-const PopularList = () => {
-  const { data, error, isLoading } = usePopularsQuery();
+import MovieItem from "./MovieItem";
 
+const MovieList = ({ data, error, isLoading }) => {
   return (
     <Box>
       {error ? (
@@ -24,7 +22,7 @@ const PopularList = () => {
               }}
             >
               {data.results.map((popular) => (
-                <PopularItem key={popular.id} popular={popular}></PopularItem>
+                <MovieItem key={popular.id} popular={popular}></MovieItem>
               ))}
             </Box>
           </div>
@@ -34,4 +32,4 @@ const PopularList = () => {
   );
 };
 
-export default PopularList;
+export default MovieList;

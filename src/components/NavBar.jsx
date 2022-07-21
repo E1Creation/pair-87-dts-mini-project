@@ -46,6 +46,18 @@ const NavBar = ({ isHomePage }) => {
                 <Typography variant="body1" sx={{ color: "white" }}>
                   {user?.email}
                 </Typography>
+                <Link to="/upcoming" style={{ textDecoration: "none" }}>
+                  {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Up Coming
+                  </Button>
+                </Link>
+                <Link to="/toprated" style={{ textDecoration: "none" }}>
+                  {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Top Rated
+                  </Button>
+                </Link>
                 <Link to="/" style={{ textDecoration: "none" }}>
                   {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
                   <Button sx={{ my: 2, color: "white", display: "block" }}>
