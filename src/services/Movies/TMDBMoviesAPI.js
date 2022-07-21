@@ -16,9 +16,16 @@ export const TMDBMovies = createApi({
     upComing: builder.query({
       query: () => `/upcoming?api_key=${API_KEY}`,
     }),
+    detail: builder.query({
+      query: (id) => `/${id}?api_key=${API_KEY}`,
+    }),
   }),
 });
 
-export const { usePopularsQuery, useTopRatedQuery, useUpComingQuery } =
-  TMDBMovies;
+export const {
+  usePopularsQuery,
+  useTopRatedQuery,
+  useUpComingQuery,
+  useDetailQuery,
+} = TMDBMovies;
 export { imageUrl };

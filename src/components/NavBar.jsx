@@ -39,13 +39,19 @@ const NavBar = ({ isHomePage }) => {
             {/* Karena link ini bukan dari MUI yang kita gunakan adalah style, bukan sx */}
             <Box display={"flex"}>
               <LocalMoviesIcon sx={{ width: 40, mt: 0.3, color: "red" }} />
-              <Typography variant="h5">Movieku</Typography>
+              <Typography variant="h5">My Movies</Typography>
             </Box>
             {isHomePage ? (
               <Box display={"flex"} sx={{ alignItems: "center", gap: "20px" }}>
                 <Typography variant="body1" sx={{ color: "white" }}>
                   {user?.email}
                 </Typography>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    Populer
+                  </Button>
+                </Link>
                 <Link to="/upcoming" style={{ textDecoration: "none" }}>
                   {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
                   <Button sx={{ my: 2, color: "white", display: "block" }}>
@@ -56,12 +62,6 @@ const NavBar = ({ isHomePage }) => {
                   {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
                   <Button sx={{ my: 2, color: "white", display: "block" }}>
                     Top Rated
-                  </Button>
-                </Link>
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
-                  <Button sx={{ my: 2, color: "white", display: "block" }}>
-                    Populer
                   </Button>
                 </Link>
 

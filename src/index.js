@@ -12,6 +12,7 @@ import ProtectedComponent from "./components/ProtectedComponent";
 import Home from "./containers/Home";
 import TopRated from "./containers/TopRated";
 import UpComing from "./containers/UpComing";
+import Detail from "./containers/Detail";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -40,6 +41,14 @@ root.render(
               element={
                 <ProtectedComponent>
                   <UpComing />
+                </ProtectedComponent>
+              }
+            ></Route>
+            <Route
+              path="detail/:id"
+              element={
+                <ProtectedComponent>
+                  <Detail />
                 </ProtectedComponent>
               }
             ></Route>

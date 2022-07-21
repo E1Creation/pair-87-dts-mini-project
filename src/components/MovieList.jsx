@@ -1,4 +1,4 @@
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import MovieItem from "./MovieItem";
 
@@ -21,9 +21,12 @@ const MovieList = ({ data, error, isLoading }) => {
                 p: 5,
               }}
             >
-              {data.results.map((popular) => (
-                <MovieItem key={popular.id} popular={popular}></MovieItem>
-              ))}
+              {data.results.map((popular) => {
+                console.log(popular);
+                return (
+                  <MovieItem key={popular.id} popular={popular}></MovieItem>
+                );
+              })}
             </Box>
           </div>
         </>
