@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Avatar,
   Box,
@@ -13,16 +13,43 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
+  auth,
   loginWithEmailandPassword,
   registerithEmailandPassword,
 } from "../services/authentication/firebase";
 
+// import { useDispatch } from "react-redux";
+// import { saveUser } from "../features/user";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "./Loading";
+
 const SignForm = ({ text }) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
+  const [userAuth, isLoading] = useAuthState(auth);
+  useEffect(
+    () => {
+      // Nah di sini mungkin kita bisa modifikasi / menggunakan
+      // isLoading sebagai logic untuk menampilkan loading screen
+      // (pada pembelajaran ini loading screen tidak dibuat)
+      if (isLoading) {
+        // Tampilkan loading screen (bila ada)
+        return;
+      }
+
+      // Lalu apabila usernya ditemukan (ada / tidak null)
+      // Maka akan kita navigasikan ke halaman HomePage
+      if (userAuth) {
+        navigate("/");
+      }
+    },
+    // Sekarang dependency kita tergantung pada user dan isLoading dari useAuthState
+    [userAuth, isLoading, navigate]
+  );
+  // const dispatcher = useDispatch();
   const loginOrRegisterHandler = () => {
     if (text === "Login") {
       loginWithEmailandPassword(user.email, user.password);

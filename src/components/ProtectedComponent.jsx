@@ -12,11 +12,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 // Untuk bisa menggunakan useAuthState, kita membutuhkan auth dari authentication/firebase
 import { auth } from "../services/authentication/firebase";
 import Loading from "./Loading";
+import { selectUser } from "../features/user";
+import { useSelector } from "react-redux";
 
 // Karena di sini akan nge-slot, maka harus menerima props children
 const ProtectedComponent = ({ children }) => {
   // Kita gunakan hooksnya di sini
   const navigate = useNavigate();
+  // const userData = useSelector(selectUser);
 
   // Karena di sini kita hanya mengecek dari user, kita hanya gunakan [user] saja
   const [user, isLoading] = useAuthState(auth);
@@ -24,15 +27,19 @@ const ProtectedComponent = ({ children }) => {
   useEffect(() => {
     // Di sini kita akan membuat logic, apabila user tidak ada (null), maka akan kita
     // "paksa" ke halaman login
-    if (!user) {
-      navigate("/login");
+    if (isLoading) {
       return;
     }
-  }, [user, navigate]);
+    if (!user) {
+      navigate("/login");
+      console.log(user);
+      return;
+    }
+  }, [user, isLoading, navigate]);
 
   // Apabila kondisinya masih dalam tahap loading, kita berikan halaman kosong
   if (isLoading) {
-    return Loading;
+    return <Loading />;
   } else {
     // Bila tidak isLoading (berarti sudah selesai)
     // Kita kembalikan children yang ingin dirender
