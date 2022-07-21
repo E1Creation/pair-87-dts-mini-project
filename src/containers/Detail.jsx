@@ -28,23 +28,34 @@ const Detail = () => {
           flexDirection: "column",
           color: "#ffffff",
           textAlign: "left",
+          padding: "15px",
         }}
       >
-        {/* <Box sx={{ padding: "10px" }}> */}
         <Typography variant="h4" gutterBottom component="div">
           {data.original_title}
         </Typography>
-        {/* </Box> */}
-        {/* <Box> */}
         <Typography variant="subtitle1" gutterBottom component="div">
+          {data.release_date}
+        </Typography>
+        <Typography
+          sx={{ fontStyle: "italic" }}
+          variant="subtitle1"
+          gutterBottom
+          component="div"
+        >
+          {data.tagline}
+        </Typography>
+        <Typography
+          sx={{ fontSize: "20px", fontWeight: "bold" }}
+          variant="subtitle1"
+          gutterBottom
+          component="div"
+        >
           Overview
         </Typography>
-        {/* </Box> */}
-        {/* <Box> */}
         <Typography variant="body1" gutterBottom component="div">
           {data.overview}
         </Typography>
-        {/* </Box> */}
       </Box>
     </Box>
   ) : null;
