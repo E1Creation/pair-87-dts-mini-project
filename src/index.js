@@ -12,6 +12,7 @@ import ProtectedComponent from "./components/ProtectedComponent";
 import Home from "./containers/Home";
 import TopRated from "./containers/TopRated";
 import UpComing from "./containers/UpComing";
+import Search from "./containers/Search";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -19,30 +20,10 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route
-              path=""
-              element={
-                <ProtectedComponent>
-                  <Home />
-                </ProtectedComponent>
-              }
-            ></Route>
-            <Route
-              path="toprated"
-              element={
-                <ProtectedComponent>
-                  <TopRated />
-                </ProtectedComponent>
-              }
-            ></Route>
-            <Route
-              path="upcoming"
-              element={
-                <ProtectedComponent>
-                  <UpComing />
-                </ProtectedComponent>
-              }
-            ></Route>
+            <Route path="" element={<Home />}></Route>
+            <Route path="toprated" element={<TopRated />}></Route>
+            <Route path="upcoming" element={<UpComing />}></Route>
+            <Route path="search" element={<Search />}></Route>
           </Route>
           <Route path="login" element={<LogIn></LogIn>}></Route>
           <Route path="register" element={<Register></Register>}></Route>
