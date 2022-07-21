@@ -1,12 +1,10 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
-import MovieList from "../components/MovieList";
 import { useDetailQuery, imageUrl } from "../services/Movies/TMDBMoviesAPI";
 
 const Detail = () => {
   const param = useParams();
-  //   console.log(param);
   const { data, error, isLoading } = useDetailQuery(param.id);
   console.log(`upComing data: ${data}`);
   return data ? (
@@ -14,8 +12,8 @@ const Detail = () => {
       <Box
         component="img"
         sx={{
-          width: 200,
-          maxWidth: { xs: 100, md: 200 },
+          width: 300,
+          maxWidth: { xs: 150, md: 300 },
         }}
         src={imageUrl + data.poster_path}
         alt={data.original_title}

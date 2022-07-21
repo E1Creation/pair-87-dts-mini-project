@@ -22,7 +22,7 @@ export const TMDBMovies = createApi({
       }),
     }),
     detail: builder.query({
-      query: (id) => `/${id}?api_key=${API_KEY}`,
+      query: (id) => `/movie/${id}?api_key=${API_KEY}`,
     }),
   }),
 });
