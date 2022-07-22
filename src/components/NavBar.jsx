@@ -242,7 +242,10 @@ const NavBar = ({ isHomePage }) => {
             ) : (
               <Link to="/login" style={{ textDecoration: "none" }}>
                 {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
-                <Button sx={{ color: "#ffffff" }} onClick={navigateToLogin}>
+                <Button
+                  sx={{ color: "#ffffff", bgcolor: "red" }}
+                  onClick={navigateToLogin}
+                >
                   Sign In
                 </Button>
               </Link>
