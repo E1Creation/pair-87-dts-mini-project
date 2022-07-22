@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <NavBar isHomePage={true} />
       <Outlet />
-      <Footer />
+      <Footer className="footer" />
     </div>
   );
 }

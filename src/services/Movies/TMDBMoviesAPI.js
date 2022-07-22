@@ -24,6 +24,9 @@ export const TMDBMovies = createApi({
     detail: builder.query({
       query: (id) => `/movie/${id}?api_key=${API_KEY}`,
     }),
+    video: builder.query({
+      query: (id) => `/movie/${id}/videos?api_key=${API_KEY}`,
+    }),
   }),
 });
 
@@ -33,5 +36,6 @@ export const {
   useUpComingQuery,
   useDetailQuery,
   useSearchMoviesQuery,
+  useVideoQuery,
 } = TMDBMovies;
 export { imageUrl };

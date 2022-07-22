@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
+import Loading from "./Loading";
 import MovieItem from "./MovieItem";
 
 const MovieList = ({ data, error, isLoading }) => {
@@ -8,7 +9,7 @@ const MovieList = ({ data, error, isLoading }) => {
       {error ? (
         <>Ada error</>
       ) : isLoading ? (
-        <>lagi loading..</>
+        <Loading />
       ) : (
         <>
           <div>
@@ -17,14 +18,19 @@ const MovieList = ({ data, error, isLoading }) => {
                 display: "flex",
                 flexDirection: "row",
                 flexWrap: "wrap",
-                justifyContent: "flex-start",
-                p: 5,
+                justifyContent: "normal",
+                p: "0 6vw",
               }}
             >
               {data.results.map((popular) => {
                 console.log(popular);
+
                 return (
-                  <MovieItem key={popular.id} popular={popular}></MovieItem>
+                  <MovieItem
+                    key={popular.id}
+                    popular={popular}
+                    loading={isLoading}
+                  ></MovieItem>
                 );
               })}
             </Box>

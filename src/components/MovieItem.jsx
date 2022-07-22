@@ -5,9 +5,18 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, logOut } from "../services/authentication/firebase";
+import CardSkeleton from "./CardSkeleton";
+import { useState } from "react";
 
-const MovieItem = ({ popular }) => {
+const MovieItem = ({ popular, loading }) => {
   const [user, isLoading] = useAuthState(auth);
+  const [state, setState] = useState(false);
+  setTimeout(() => {
+    setState(true);
+  }, 2000);
+  if (!state && !loading) {
+    return <CardSkeleton />;
+  }
   return (
     <Box>
       {user ? (
